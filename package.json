@@ -1,0 +1,33 @@
+{
+  "name": "node-gics",
+  "version": "0.0.10",
+  "description": "GICS parser (Global Industry Classification Standard)",
+  "license": "MIT",
+  "homepage": "https://github.com/MaximilianBuegler/node-gics",
+  "repository": "MaximilianBuegler/node-gics",
+  "contributors": [
+    "Maximilian Buegler <max@maxbuegler.eu> (http://www.maxbuegler.eu/)"
+  ],
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "files": [
+    "gics.js",
+    "data",
+    "src",
+    "test"
+  ],
+  "keywords": [
+    "gics",
+    "industries",
+    "sectors",
+    "global industry classification standard"
+  ],
+  "dependencies": {
+    "csv-parse": "^1.1.7",
+    "fs": "0.0.1-security"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
