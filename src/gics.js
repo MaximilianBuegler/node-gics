@@ -77,6 +77,8 @@ function loadGics(filename){
 var gics=JSON.parse(fs.readFileSync('./data/gics.json','utf8'));
 //loadGics('./data/gics.csv');
 
+
+
 module.exports = {
     
     /**
@@ -278,5 +280,40 @@ module.exports = {
             }
         }                                
         return res;          
-    }        
+    },
+    
+    /**
+     * Returns record for given id
+     *
+     * @param id
+     **/
+    resolveID: function(id){
+        var i;
+        if (id<100){
+            for (i=0;i<gics.sectors.length;i++){
+                if (gics.sectors[i].id==id)
+                    return gics.sectors[i];
+            }
+            return undefined;
+        }
+        if (id<10000){
+            for (i=0;i<gics.industryGroups.length;i++){
+                if (gics.industryGroups[i].id==id)
+                    return gics.industryGroups[i];
+            }
+            return undefined;
+        }
+        if (id<1000000){
+            for (i=0;i<gics.industries.length;i++){
+                if (gics.industries[i].id==id)
+                    return gics.industries[i];
+            }
+            return undefined;
+        }
+        for (i=0;i<gics.subIndustries.length;i++){
+            if (gics.subIndustries[i].id==id)
+                return gics.subIndustries[i];
+        }
+        return undefined;
+    }
 };
