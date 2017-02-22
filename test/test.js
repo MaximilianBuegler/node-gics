@@ -90,5 +90,39 @@ describe('Find', function () {
         });
     });
 
+    
+    describe('Resolver', function () {
+        it('Should resolve sector 20', function () {
+            var res = gics.resolveID(20);
+            assert.equal(res.name, 'Industrials');
+            assert.equal(res.Bloomberg,'S5INDU');
+        });
+        it('Should resolve industry group 2020', function () {    
+            var res = gics.resolveID(2020);
+            assert.equal(res.name, 'Commercial  & Professional Services');
+            assert.equal(res.Bloomberg,'S5COMS');
+        });
+        it('Should resolve industry 202020', function () {    
+            var res = gics.resolveID(202020);
+            assert.equal(res.name, 'Professional Services');
+            assert.equal(res.Bloomberg,'S5PRSV');
+        });
+        it('Should resolve subindustry 20202020', function () {    
+            var res = gics.resolveID(20202020);
+            assert.equal(res.name, 'Research & Consulting Services');
+            assert.equal(res.Bloomberg,'S5RSCS');            
+        });
+        
+        it('Should resolve nothing', function () {
+            var res = gics.resolveID(99);
+            assert.equal(res, undefined);
+            res = gics.resolveID(9999);
+            assert.equal(res, undefined);
+            res = gics.resolveID(999999);
+            assert.equal(res, undefined);
+            res = gics.resolveID(99999999);
+            assert.equal(res, undefined);
+        });
+    });
 
 });
