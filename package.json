@@ -28,6 +28,12 @@
     "fs": "0.0.1-security"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "cover": "istanbul cover _mocha",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.16",
+    "mocha-lcov-reporter": "^1.3.0"
   }
 }
